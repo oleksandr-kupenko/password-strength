@@ -5,6 +5,7 @@ import {AppComponent} from "./app.component";
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import {BrowserModule, platformBrowser} from "@angular/platform-browser";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 
@@ -17,7 +18,10 @@ import {BrowserModule, platformBrowser} from "@angular/platform-browser";
     RouterModule,
     AppRoutingModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    provideAnimationsAsync()
+  ]
 })
 export class AppModule { }
 

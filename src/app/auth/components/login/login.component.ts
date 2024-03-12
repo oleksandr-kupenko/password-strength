@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-
+  public strengthPassBlocks = [true, false, false];
+  public passwordStatus: 'easy' | 'medium' | 'strong' | null = null;
 }

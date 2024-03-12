@@ -1,0 +1,55 @@
+:host {
+  width: 100%;
+  height: 100%;
+
+  mat-form-field {
+    width: 100%;
+
+    &.password-field {
+      mat-icon {
+        color: darkgray;
+        transition: 0.2s;
+        cursor: pointer;
+
+        &:hover {
+          color: #282727;
+        }
+      }
+    }
+  }
+
+  .pass-strength-info {
+    margin-top: 7px;
+    width: 100%;
+    display: flex;
+
+    &__block {
+      display: block;
+      height: 4px;
+      background-color: grey;
+      flex-grow: 1;
+      margin-right: 2px;
+      border-radius: 2px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &.strong .active {
+      background-color: green;
+    }
+
+    &.medium .active {
+      background-color: #e8e61a;
+    }
+
+    &.easy .active {
+      background-color: red;
+    }
+  }
+
+  .submit-btn {
+    margin-left: auto;
+  }
+}

@@ -1,1 +1,24 @@
-<p>login works!</p>
+<mat-card>
+  <form action="">
+  <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="without-subscript-wrapper password-field">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password">
+        <mat-icon role="button" class="password-field__icon" matSuffix>remove_red_eye</mat-icon>
+      </mat-form-field>
+      <div class="pass-strength-info" [ngClass]="passwordStatus">
+        @for(blockStatus of strengthPassBlocks; track strengthPassBlocks) {
+          <span class="pass-strength-info__block active" [class.active]="blockStatus"></span>
+        }
+      </div>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button class="submit-btn" type="submit" mat-button color="primary">Login</button>
+  </mat-card-actions>
+  </form>
+</mat-card>
