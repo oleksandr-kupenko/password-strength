@@ -14,38 +14,11 @@
         &:hover {
           color: #282727;
         }
+
+        &.active {
+          color: #484545;
+        }
       }
-    }
-  }
-
-  .pass-strength-info {
-    margin-top: 7px;
-    width: 100%;
-    display: flex;
-
-    &__block {
-      display: block;
-      height: 4px;
-      background-color: grey;
-      flex-grow: 1;
-      margin-right: 2px;
-      border-radius: 2px;
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-
-    &.strong .active {
-      background-color: green;
-    }
-
-    &.medium .active {
-      background-color: #e8e61a;
-    }
-
-    &.easy .active {
-      background-color: red;
     }
   }
 

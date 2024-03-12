@@ -9,11 +9,14 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
+import {PasswordStrengthComponent} from "./components/password-strength/password-strength.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatListModule, MatListOption} from "@angular/material/list";
 
 
 
 @NgModule({
-  declarations: [AuthComponent, LoginComponent],
+  declarations: [AuthComponent, LoginComponent, PasswordStrengthComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -22,7 +25,9 @@ import {MatInputModule} from "@angular/material/input";
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
+    MatListModule
   ],
   exports: [AuthComponent]
 })
