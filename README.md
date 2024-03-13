@@ -1,7 +1,7 @@
 # Password Strength Meter (USENSE Test task)
 
 
-### [Example of work](https://oleksandr-kupenko.github.io/chat-gpt-pay-as-you-go/browser)
+### [Example of work](https://oleksandr-kupenko.github.io/password-strength/browser/)
 
 ## Stack
 - Angular 17
