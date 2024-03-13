@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {LoginComponent} from "./components/login/login.component";
+import {PasswordComponent} from "./components/password/password.component";
 import {AuthComponent} from "./auth.component";
 
 const routes: Routes = [
@@ -8,8 +8,8 @@ const routes: Routes = [
     path: 'auth',
     component: AuthComponent,
     children: [
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'login', component: LoginComponent }
+      { path: '', redirectTo: 'password', pathMatch: 'full' },
+      { path: 'password', component: PasswordComponent }
     ]
   }
 ]

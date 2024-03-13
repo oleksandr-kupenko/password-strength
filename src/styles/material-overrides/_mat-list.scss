@@ -1,0 +1,10 @@
+mat-selection-list.without-focus {
+  .mdc-list-item:focus::before {
+    background-color: inherit !important;
+  }
+
+  .mdc-list-item.mdc-list-item--with-one-line {
+    height: 30px;
+  }
+}
+
