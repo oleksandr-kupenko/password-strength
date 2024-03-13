@@ -18,27 +18,27 @@ export function passwordStrengthValidator(minValidValue: PasswordStrength.MEDIUM
     const errors = new PasswordErrors(containsCyrillic, value.length < 8, !containsLetters, !containsNumbers, !containsSymbols);
 
     if (!value) {
-      control.passwordStrength = null;
+      control.passwordStrengthDetails = {passwordStrength: null, errors};
       return { isValid: false, errors};
     }
 
     if (containsCyrillic) {
-      control.passwordStrength = PasswordStrength.EASY;
+      control.passwordStrengthDetails = {passwordStrength: PasswordStrength.EASY, errors};
       return { isValid: false, errors };
     }
 
-    if (value.length <= 8) {
-      control.passwordStrength = PasswordStrength.EASY;
+    if (value.length < 8) {
+      control.passwordStrengthDetails = {passwordStrength: PasswordStrength.EASY, errors};
       return { isValid: false, errors };
     }
 
     if (countDifferentTypes === 3) {
-      control.passwordStrength = PasswordStrength.STRONG;
+      control.passwordStrengthDetails = {passwordStrength: PasswordStrength.STRONG, errors};
       return null;
     }
 
     if (countDifferentTypes === 2) {
-      control.passwordStrength = PasswordStrength.MEDIUM;
+      control.passwordStrengthDetails = {passwordStrength: PasswordStrength.MEDIUM, errors};
       if (minValidValue === PasswordStrength.MEDIUM) {
         return null;
       }
@@ -46,7 +46,7 @@ export function passwordStrengthValidator(minValidValue: PasswordStrength.MEDIUM
     }
 
     if (countDifferentTypes === 1) {
-      control.passwordStrength = PasswordStrength.EASY;
+      control.passwordStrengthDetails = {passwordStrength: PasswordStrength.EASY, errors};
       return { isValid: false, errors };
     }
 

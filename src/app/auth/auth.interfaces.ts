@@ -12,16 +12,22 @@ export interface PasswordValidationResult {
 }
 
 export class PasswordErrors {
+
   constructor(
-    public hasCyrillic: boolean,
-    public toShort: boolean,
-    public hasNotLetters: boolean,
-    public hasNotNumbers: boolean,
-    public hasNotSymbols: boolean) {
+    public hasCyrillic = false,
+    public toShort = true,
+    public hasNotLetters = true,
+    public hasNotNumbers = true,
+    public hasNotSymbols = true) {
   }
 
 }
 
+export interface PasswordStrengthDetails {
+  passwordStrength: PasswordStrength | null;
+  errors: PasswordErrors
+}
+
 export interface ControlWithPassStrength extends AbstractControl {
-  passwordStrength?: PasswordStrength | null;
+  passwordStrengthDetails?: PasswordStrengthDetails;
 }

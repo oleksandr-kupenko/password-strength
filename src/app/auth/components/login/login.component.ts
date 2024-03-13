@@ -1,7 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {passwordStrengthValidator} from "../../validators/password-strength.validator";
-import {ControlWithPassStrength, PasswordErrors, PasswordStrength} from "../../auth.interfaces";
+import {
+  ControlWithPassStrength, PasswordErrors,
+  PasswordStrength,
+  PasswordStrengthDetails
+} from "../../auth.interfaces";
 import {Subscription} from "rxjs";
 
 @Component({
@@ -11,8 +15,7 @@ import {Subscription} from "rxjs";
 })
 export class LoginComponent implements OnInit{
   public loginForm!: FormGroup;
-  public passwordStrength: PasswordStrength | null = null;
-  public passwordErrors!: PasswordErrors;
+  public passwordStrengthDetails!: PasswordStrengthDetails;
 
   public isPasswordHidden = true;
 
@@ -23,6 +26,8 @@ export class LoginComponent implements OnInit{
   ngOnInit() {
     this.initForm();
     this.subscribeToPasswordChanges();
+    this.passwordStrengthDetails = {passwordStrength: null,
+      errors: new PasswordErrors()}
   }
 
   public handleTogglePasswordHidden() {
@@ -40,12 +45,9 @@ export class LoginComponent implements OnInit{
     this.subs.add(
       this.loginForm.get('password')!.valueChanges.subscribe(value => {
         const passwordCtrl = this.loginForm.controls['password'] as ControlWithPassStrength;
-        if (passwordCtrl.errors) {
-          this.passwordErrors = passwordCtrl.errors!['errors'];
-        } else {
-          this.passwordErrors = new PasswordErrors(false, false, false, false, false)
+        if (passwordCtrl.passwordStrengthDetails) {
+          this.passwordStrengthDetails = passwordCtrl.passwordStrengthDetails;
         }
-        this.passwordStrength = passwordCtrl.passwordStrength ? passwordCtrl.passwordStrength : null;
       })
     )
   }

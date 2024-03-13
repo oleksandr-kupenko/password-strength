@@ -1,5 +1,7 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {PasswordErrors, PasswordStrength} from "../../auth.interfaces";
+import {
+  PasswordStrengthDetails,
+} from "../../auth.interfaces";
 
 @Component({
   selector: 'app-password-strength',
@@ -8,8 +10,7 @@ import {PasswordErrors, PasswordStrength} from "../../auth.interfaces";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PasswordStrengthComponent {
-  @Input() passwordStrength: PasswordStrength | null = null;
-  @Input() passwordErrors?: PasswordErrors;
+  @Input() passwordStrengthDetails?: PasswordStrengthDetails;
 
   public strengthPassBlocks = [true, false, false];
 
