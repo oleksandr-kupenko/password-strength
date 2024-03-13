@@ -1,5 +1,5 @@
 {
-  "name": "usense-test-task",
+  "name": "password-strength",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
